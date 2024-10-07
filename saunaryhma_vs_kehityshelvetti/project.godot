@@ -15,11 +15,27 @@ run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Scripts/Autoloads/global.gd"
+File="*res://Scripts/Autoloads/file.gd"
+
 [dotnet]
 
 project/assembly_name="Saunaryhma_vs_kehityshelvetti"
 
+[layer_names]
+
+2d_physics/layer_1="Terrain"
+2d_physics/layer_3="Hazard"
+2d_physics/layer_9="Player"
+2d_physics/layer_10="Player Hurt"
+2d_physics/layer_17="Enemy"
+2d_physics/layer_18="Enemy Hurt"
+2d_physics/layer_25="Treasure"
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
