@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7cnib"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="1_gulgi"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_t50lp"]
-[ext_resource type="PackedScene" uid="uid://dv8v7sks6bomp" path="res://Scenes/background.tscn" id="2_x2uub"]
+[ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="2_x2uub"]
 [ext_resource type="Texture2D" uid="uid://drl6eog8m0gos" path="res://icon.svg" id="2_yyyv7"]
 [ext_resource type="PackedScene" uid="uid://yssdwn2jv46g" path="res://Scenes/Levels/level1.tscn" id="3_w88do"]
 
@@ -19,12 +19,18 @@ position = Vector2(320, 320)
 zoom = Vector2(2, 2)
 script = ExtResource("1_gulgi")
 _subject = NodePath("../Player1")
-_offset = Vector2(-2, -1)
+_offset = Vector2(2, -1)
+_look_ahead_ease_type = 2
 _look_ahead_duration = 2.0
+_floor_height_trans_type = 1
+_floor_height_ease_type = 1
 
-[node name="Background" parent="Camera2D" instance=ExtResource("2_x2uub")]
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.05, 0.05)
+
+[node name="Background" parent="Parallax2D" instance=ExtResource("2_x2uub")]
 z_index = -10
-position = Vector2(-48, -32)
+position = Vector2(272, 288)
 
 [node name="Player1" parent="." instance=ExtResource("1_5fyvd")]
 position = Vector2(289, 453)
