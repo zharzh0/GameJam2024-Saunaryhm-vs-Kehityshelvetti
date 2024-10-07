@@ -11,7 +11,8 @@ size = Vector2(1147, 69)
 [node name="Game" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(323, 416)
+z_index = 1
+position = Vector2(304, 454)
 zoom = Vector2(3, 3)
 
 [node name="Player1" parent="." instance=ExtResource("1_5fyvd")]
