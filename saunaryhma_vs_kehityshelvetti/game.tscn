@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxdncio0wgpnu"]
+[gd_scene load_steps=5 format=3 uid="uid://cxdncio0wgpnu"]
 
 [ext_resource type="PackedScene" uid="uid://t1kf7ienpq8h" path="res://Scenes/Characters/player1.tscn" id="1_5fyvd"]
-[ext_resource type="Script" path="res://Scripts/player.gd" id="2_t50lp"]
 [ext_resource type="Texture2D" uid="uid://drl6eog8m0gos" path="res://icon.svg" id="2_yyyv7"]
 [ext_resource type="PackedScene" uid="uid://yssdwn2jv46g" path="res://Scenes/Levels/level1.tscn" id="3_w88do"]
 
@@ -10,11 +9,12 @@ size = Vector2(1147, 69)
 
 [node name="Game" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(217, 425)
+zoom = Vector2(3, 3)
+
 [node name="Player1" parent="." instance=ExtResource("1_5fyvd")]
 position = Vector2(384, 114)
-
-[node name="Player" type="Node" parent="Player1"]
-script = ExtResource("2_t50lp")
 
 [node name="Sprite2D" type="StaticBody2D" parent="."]
 position = Vector2(579.5, 620)
