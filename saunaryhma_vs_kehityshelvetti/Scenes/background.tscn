@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv8v7sks6bomp"]
+
+[ext_resource type="Script" path="res://Scripts/background.gd" id="1_xs0px"]
+[ext_resource type="Texture2D" uid="uid://bys45pyuyfc13" path="res://Resources/background.png" id="2_v3qw2"]
+[ext_resource type="Texture2D" uid="uid://bty0gck5yji6u" path="res://Resources/photo2pixel_download (1).png" id="3_2tjhg"]
+
+[node name="Background" type="Node2D"]
+script = ExtResource("1_xs0px")
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_v3qw2")
+
+[node name="Photo2PixelDownload(1)" type="Sprite2D" parent="."]
+texture = ExtResource("3_2tjhg")

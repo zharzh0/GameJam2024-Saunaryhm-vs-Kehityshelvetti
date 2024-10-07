@@ -12,7 +12,6 @@ var _max : Vector2
 @export_category("Jump")
 @export var _jump_height : float = 2.5
 @export var _air_control : float = 0.5
-@export var _jump_dust : PackedScene
 var _jump_velocity : float
 
 @export_category("Sprite")

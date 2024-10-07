@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxdncio0wgpnu"]
+[gd_scene load_steps=9 format=3 uid="uid://cxdncio0wgpnu"]
 
 [ext_resource type="PackedScene" uid="uid://t1kf7ienpq8h" path="res://Scenes/Characters/player1.tscn" id="1_5fyvd"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7cnib"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="1_gulgi"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_t50lp"]
+[ext_resource type="PackedScene" uid="uid://dv8v7sks6bomp" path="res://Scenes/background.tscn" id="2_x2uub"]
 [ext_resource type="Texture2D" uid="uid://drl6eog8m0gos" path="res://icon.svg" id="2_yyyv7"]
 [ext_resource type="PackedScene" uid="uid://yssdwn2jv46g" path="res://Scenes/Levels/level1.tscn" id="3_w88do"]
 
@@ -9,14 +12,22 @@
 size = Vector2(1147, 69)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_7cnib")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-z_index = 1
-position = Vector2(304, 454)
-zoom = Vector2(3, 3)
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
+position = Vector2(320, 320)
+zoom = Vector2(2, 2)
+script = ExtResource("1_gulgi")
+_subject = NodePath("../Player1")
+_offset = Vector2(-2, -1)
+_look_ahead_duration = 2.0
+
+[node name="Background" parent="Camera2D" instance=ExtResource("2_x2uub")]
+z_index = -10
+position = Vector2(-48, -32)
 
 [node name="Player1" parent="." instance=ExtResource("1_5fyvd")]
-position = Vector2(384, 114)
+position = Vector2(289, 453)
 
 [node name="Player" type="Node" parent="Player1"]
 script = ExtResource("2_t50lp")
