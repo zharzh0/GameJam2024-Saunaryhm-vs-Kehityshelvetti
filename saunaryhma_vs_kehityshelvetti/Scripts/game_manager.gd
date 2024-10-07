@@ -8,8 +8,7 @@ extends Node2D
 
 
 func _ready():
-	pass
-#	_init_boundaries()	
+	_init_boundaries()	
 #	_init_ui()
 
 func _init_boundaries():
@@ -22,7 +21,7 @@ func _init_boundaries():
 
 #func _init_ui():
 	#initialize the UI
-#	_coin_counter.set_value(File.data.coins)
+#	_coin_counter.set_value(File.data.kiuaskivet)
 #	_lives_counter.set_value(File.data.lives)
 
 func collect_coin(value : int):
@@ -31,7 +30,7 @@ func collect_coin(value : int):
 		File.data.coins -= 100
 		File.data.lives += 1
 #		_lives_counter.set_value(File.data.lives)
-#	_coin_counter.set_value(File.data.coins)
+#	_coin_counter.set_value(File.data.kiuaskivet)
 
 func collect_skull():
 	File.data.lives += 1
