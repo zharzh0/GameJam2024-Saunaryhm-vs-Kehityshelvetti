@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D  # Ensure this extends CharacterBody2D
 
 # Add an exported variable for levitation
 @export var can_levitate: bool = false  # This will be a checkbox in the Inspector
@@ -7,7 +7,7 @@ const SPEED = 60
 const DETECTION_RADIUS = 200  # Distance at which the enemy will start following the player
 
 @onready var ray_cast_right: RayCast2D = $RayCastRight
-@onready var ray_cast_left: RayCast2D = $RayCast2DLeft
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var killzone: Area2D = $Killzone
 
 var player: CharacterBody2D = null  # Reference to the player
@@ -28,13 +28,20 @@ func _process(delta: float) -> void:
 
 		if is_following:
 			var direction_to_player = (player.position - position).normalized()
-			
-			# Adjust the Y position based on the levitation setting
+			var movement_vector = Vector2.ZERO  # Initialize movement vector
+
+			# Adjust the movement vector based on the levitation setting
 			if can_levitate:
-				# Keep levitating towards the player
-				position += direction_to_player * SPEED * delta
+				movement_vector = direction_to_player * SPEED * delta  # Move towards player
 			else:
 				direction_to_player.y = 0  # Ensure the enemy doesn't levitate
-				position += direction_to_player * SPEED * delta
+				movement_vector = direction_to_player * SPEED * delta  # Move towards player horizontally
+
+			velocity += movement_vector  # Update velocity
+			move_and_slide()  # Call move_and_slide without arguments
+
+			# Flip the sprite based on direction
+			if direction_to_player.x != 0:
+				$Sprite2D.flip_h = direction_to_player.x < 0
 
 			print("Moving towards Player")  # Debugging output for movement

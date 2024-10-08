@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/enemy_2.gd" id="1_72ur4"]
 [ext_resource type="Texture2D" uid="uid://24p8w8e45w53" path="res://Resources/koodari1.png" id="2_0p7yl"]
-[ext_resource type="PackedScene" path="res://Scenes/killzone.tscn" id="3_uxfa0"]
+[ext_resource type="PackedScene" uid="uid://yh027824a26b" path="res://Scenes/killzone.tscn" id="3_uxfa0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fs3il"]
 size = Vector2(32, 64)

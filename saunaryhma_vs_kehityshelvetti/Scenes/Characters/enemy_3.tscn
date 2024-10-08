@@ -1,18 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://b23iwsk0sk11c"]
+[gd_scene load_steps=6 format=3 uid="uid://b23iwsk0sk11c"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_3.gd" id="1_dkalt"]
 [ext_resource type="Texture2D" uid="uid://24p8w8e45w53" path="res://Resources/koodari1.png" id="2_txql3"]
-[ext_resource type="PackedScene" path="res://Scenes/killzone.tscn" id="3_u44qm"]
+[ext_resource type="PackedScene" uid="uid://yh027824a26b" path="res://Scenes/killzone.tscn" id="3_u44qm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yclsf"]
+size = Vector2(19, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fs3il"]
 size = Vector2(30, 64)
 
-[node name="Enemy3" type="Node2D"]
+[node name="Enemy3" type="CharacterBody2D"]
 script = ExtResource("1_dkalt")
-can_levitate = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_txql3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_yclsf")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(21, 0)
