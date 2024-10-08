@@ -16,9 +16,14 @@ var _max : Vector2
 @onready var _floor_height : float = _subject.position.y
 var _look_ahead_tween : Tween
 var _floor_height_tween : Tween
+var _continuous_y_follow : bool = true
 
 func _ready():
+	if _subject != null:
+		_subject.connect("died", Callable(self, "_on_subject_died"))
 	_offset *= Global.ppt
+
+  # Yhdistä kuolema-signaali kameraan
 
 func set_bounds(min_boundary : Vector2, max_boundary : Vector2):
 	_is_bound = true
@@ -29,11 +34,17 @@ func set_bounds(min_boundary : Vector2, max_boundary : Vector2):
 	_max -= half_zoomed_size
 
 func _process(_delta : float):
-	position.x = _subject.position.x + _look_ahead_distance
-	position.y = _floor_height + _offset.y
-	if _is_bound:
-		position.x = clamp(position.x, _min.x, _max.x)
-		position.y = clamp(position.y, _min.y, _max.y)
+	if _subject != null:
+		position.x = _subject.position.x + _look_ahead_distance
+		position.y = _floor_height + _offset.y
+		if _continuous_y_follow:
+			position.y = _subject.position.y + _offset.y
+		else:
+			position.y = _floor_height + _offset.y
+		if _is_bound:
+			position.x = clamp(position.x, _min.x, _max.x)
+			position.y = clamp(position.y, _min.y, _max.y)
+
 
 func _on_subject_changed_direction(is_facing_left: bool):
 	if _look_ahead_tween && _look_ahead_tween.is_running():
@@ -41,9 +52,16 @@ func _on_subject_changed_direction(is_facing_left: bool):
 	_look_ahead_tween = create_tween().set_trans(_look_ahead_trans_type).set_ease(_look_ahead_ease_type)
 	_look_ahead_tween.tween_property(self, "_look_ahead_distance", _offset.x * (1 if is_facing_left else -1), _look_ahead_duration)
 
-
 func _on_subject_landed(floor_height: float) -> void:
 	if _floor_height_tween and _floor_height_tween.is_running():
 		_floor_height_tween.kill()
 	_floor_height_tween = create_tween().set_trans(_floor_height_trans_type).set_ease(_floor_height_ease_type)
 	_floor_height_tween.tween_property(self, "_floor_height", floor_height, _floor_height_duration)
+	_floor_height_tween.tween_callback(Callable(self, "_enable_continuous_y_follow"))
+
+func _enable_continuous_y_follow():
+	_continuous_y_follow = true
+
+func _on_subject_died():
+	# Lopeta hahmon seuraaminen kuollessa
+	_subject = null  # Kamera ei enää seuraa hahmoa

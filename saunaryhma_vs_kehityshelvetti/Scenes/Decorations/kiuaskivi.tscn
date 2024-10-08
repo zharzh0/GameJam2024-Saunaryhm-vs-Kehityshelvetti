@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c2qnmcykpxf7d"]
+[gd_scene load_steps=25 format=3 uid="uid://bokm5pa0a1ivx"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/kiuaskivi.gd" id="1_54tga"]
 [ext_resource type="Texture2D" uid="uid://bnn8bxx0k7cc3" path="res://Resources/Sprites/Kiuskivi/greystone01.png" id="2_llt3j"]

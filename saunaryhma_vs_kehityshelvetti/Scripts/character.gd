@@ -20,6 +20,8 @@ var _jump_velocity : float
 @onready var _sprite : Sprite2D = $Sprite2D
 var _was_on_floor : bool
 
+# SIGNALS
+signal died
 signal changed_direction(is_facing_left : bool)
 signal landed(floor_height : float)
 

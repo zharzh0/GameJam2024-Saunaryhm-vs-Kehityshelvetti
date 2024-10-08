@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7cnib"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="1_gulgi"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_t50lp"]
-[ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="2_x2uub"]
+[ext_resource type="PackedScene" uid="uid://dv8v7sks6bomp" path="res://Scenes/background.tscn" id="2_x2uub"]
 [ext_resource type="PackedScene" uid="uid://yssdwn2jv46g" path="res://Scenes/Levels/level1.tscn" id="3_w88do"]
 [ext_resource type="PackedScene" uid="uid://b23iwsk0sk11c" path="res://Scenes/Characters/enemy_3.tscn" id="8_0ldcw"]
 
