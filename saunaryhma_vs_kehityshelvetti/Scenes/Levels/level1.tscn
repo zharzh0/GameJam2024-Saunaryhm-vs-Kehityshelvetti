@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://yssdwn2jv46g"]
+[gd_scene load_steps=8 format=4 uid="uid://yssdwn2jv46g"]
 
 [ext_resource type="Script" path="res://Scripts/Autoloads/level.gd" id="1_2a3od"]
 [ext_resource type="Texture2D" uid="uid://cvs4sewpasl20" path="res://Resources/floor_tile1.png" id="1_rs73u"]
 [ext_resource type="PackedScene" uid="uid://c2qnmcykpxf7d" path="res://Scenes/Decorations/kiuaskivi.tscn" id="4_8oa2m"]
+[ext_resource type="PackedScene" uid="uid://bmylvtjl6xmyv" path="res://Scenes/Characters/enemy_3.tscn" id="5_h04v4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71ij5"]
 size = Vector2(1161.5, 661)
@@ -69,3 +70,6 @@ position = Vector2(582, 506)
 
 [node name="Kiuaskivi3" parent="kivet" instance=ExtResource("4_8oa2m")]
 position = Vector2(51, 508)
+
+[node name="Enemy3" parent="." instance=ExtResource("5_h04v4")]
+position = Vector2(499, 501)

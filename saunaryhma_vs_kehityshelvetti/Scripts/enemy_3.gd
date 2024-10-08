@@ -14,7 +14,7 @@ var player: CharacterBody2D = null  # Reference to the player
 var is_following = false
 
 func _ready() -> void:
-	player = get_parent().get_node("Player1")  # Access the parent node (Game) and get Player1
+	player = get_tree().get_root().get_node("Game/Player1") # Access the parent node (Game) and get Player1
 	print("Enemy initialized. Player found: ", player != null)  # Check if player is found
 	killzone.connect("body_entered", Callable(self, "_on_killzone_body_entered"))
 
