@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://t1kf7ienpq8h"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_w4kdq"]
-[ext_resource type="Texture2D" uid="uid://drl6eog8m0gos" path="res://icon.svg" id="2_ov8lc"]
+[ext_resource type="Texture2D" uid="uid://cjtxg52d88q7r" path="res://Resources/saunaryhmä1.png" id="2_njsy6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5rl6"]
-size = Vector2(129, 128)
+size = Vector2(28, 64)
 
 [node name="Player1" type="CharacterBody2D"]
 collision_layer = 256
@@ -13,7 +13,7 @@ script = ExtResource("1_w4kdq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ov8lc")
+texture = ExtResource("2_njsy6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.5, 0.5)

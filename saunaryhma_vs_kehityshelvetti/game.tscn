@@ -16,12 +16,12 @@ scroll_scale = Vector2(0.05, 0.05)
 
 [node name="Background" parent="Parallax2D" instance=ExtResource("2_x2uub")]
 z_index = -10
-position = Vector2(678, 272)
+position = Vector2(699, 395)
 scale = Vector2(0.825, 0.825)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
 position = Vector2(688, 392)
-zoom = Vector2(3, 3)
+zoom = Vector2(5, 5)
 script = ExtResource("1_gulgi")
 _subject = NodePath("../Player1")
 _offset = Vector2(-2, -1)
@@ -30,8 +30,6 @@ _floor_height_duration = 0.25
 
 [node name="Player1" parent="." instance=ExtResource("1_5fyvd")]
 position = Vector2(130, 468)
-collision_layer = 256
-collision_mask = 65537
 _jump_height = 3.0
 
 [node name="Player" type="Node" parent="Player1"]
