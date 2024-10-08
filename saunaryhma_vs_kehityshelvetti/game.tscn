@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxdncio0wgpnu"]
+[gd_scene load_steps=8 format=3 uid="uid://cxdncio0wgpnu"]
 
 [ext_resource type="PackedScene" uid="uid://t1kf7ienpq8h" path="res://Scenes/Characters/player1.tscn" id="1_5fyvd"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7cnib"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="1_gulgi"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_t50lp"]
-[ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="2_x2uub"]
+[ext_resource type="PackedScene" uid="uid://dv8v7sks6bomp" path="res://Scenes/background.tscn" id="2_x2uub"]
 [ext_resource type="PackedScene" uid="uid://yssdwn2jv46g" path="res://Scenes/Levels/level1.tscn" id="3_w88do"]
+[ext_resource type="PackedScene" uid="uid://db2eirfo2jqy6" path="res://Scenes/enemy_2.tscn" id="7_2is68"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7cnib")
@@ -35,6 +36,9 @@ collision_mask = 65537
 script = ExtResource("2_t50lp")
 
 [node name="Level1" parent="." instance=ExtResource("3_w88do")]
+
+[node name="Enemy2" parent="." instance=ExtResource("7_2is68")]
+position = Vector2(202, 469)
 
 [connection signal="changed_direction" from="Player1" to="Camera2D" method="_on_subject_changed_direction"]
 [connection signal="landed" from="Player1" to="Camera2D" method="_on_subject_landed"]
