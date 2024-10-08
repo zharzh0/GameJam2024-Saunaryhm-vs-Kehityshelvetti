@@ -72,5 +72,52 @@ position = Vector2(819, 350)
 scale = Vector2(2.0625, 2.0625)
 texture = ExtResource("3_ewcd4")
 
-[node name="Kiuaskivi" parent="." instance=ExtResource("4_8oa2m")]
+[node name="kivet" type="Node" parent="."]
+
+[node name="Kiuaskivi" parent="kivet" instance=ExtResource("4_8oa2m")]
 position = Vector2(513, 511)
+
+[node name="Kiuaskivi2" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(459, 511)
+
+[node name="Kiuaskivi3" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(405, 503)
+
+[node name="Kiuaskivi4" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(353, 507)
+
+[node name="Kiuaskivi5" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(310, 483)
+
+[node name="Kiuaskivi6" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(268, 505)
+
+[node name="Kiuaskivi7" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(548, 488)
+
+[node name="Kiuaskivi8" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(484, 481)
+
+[node name="Kiuaskivi9" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(373, 478)
+
+[node name="Kiuaskivi10" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(445, 475)
+
+[node name="Kiuaskivi11" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(229, 505)
+
+[node name="Kiuaskivi12" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(258, 467)
+
+[node name="Kiuaskivi15" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(177, 508)
+
+[node name="Kiuaskivi16" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(204, 464)
+
+[node name="Kiuaskivi13" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(591, 506)
+
+[node name="Kiuaskivi14" parent="kivet" instance=ExtResource("4_8oa2m")]
+position = Vector2(615, 471)
