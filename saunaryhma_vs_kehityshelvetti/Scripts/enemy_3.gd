@@ -3,7 +3,7 @@ extends CharacterBody2D  # Ensure this extends CharacterBody2D
 # Add an exported variable for levitation
 @export var can_levitate: bool = false  # This will be a checkbox in the Inspector
 
-const SPEED = 50  # Adjust this to control enemy speed
+const SPEED = 200  # Adjust this to control enemy speed
 const DETECTION_RADIUS = 200  # Distance at which the enemy will start following the player
 const GRAVITY = 300  # Adjust as needed based on your game's physics
 
@@ -21,9 +21,11 @@ func _ready() -> void:
 	killzone.connect("body_entered", Callable(self, "_on_killzone_body_entered"))
 
 func _process(delta: float) -> void:
-	# Apply gravity if the enemy is not levitating
+	# Apply gravity only if the enemy cannot levitate
 	if not can_levitate:
 		velocity.y += GRAVITY * delta  # Use built-in 'velocity' for vertical movement
+	else:
+		velocity.y = 0  # Prevent gravity when levitating
 
 	if player:
 		if not is_following:
@@ -37,12 +39,14 @@ func _process(delta: float) -> void:
 
 			# Adjust the movement vector based on the levitation setting
 			if can_levitate:
-				movement_velocity = direction_to_player * SPEED  # Directly use SPEED without delta
+				movement_velocity = direction_to_player * SPEED  # Move freely in all directions
 			else:
-				direction_to_player.y = 0  # Ensure the enemy doesn't levitate
+				direction_to_player.y = 0  # Ensure the enemy only moves horizontally
 				movement_velocity = direction_to_player * SPEED  # Horizontal movement
 
-			velocity.x = movement_velocity.x  # Apply horizontal movement speed
+			velocity.x = movement_velocity.x  # Apply horizontal movement
+			if can_levitate:
+				velocity.y = movement_velocity.y  # Apply vertical movement only if levitating
 
 	# Apply the velocity and handle collisions
 	move_and_slide()  # Use built-in velocity for movement
