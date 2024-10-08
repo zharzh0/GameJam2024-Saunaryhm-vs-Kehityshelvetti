@@ -3,7 +3,7 @@ extends Node2D
 @onready var _camera : Camera2D = $Camera2D
 @onready var _player_character : CharacterBody2D = $Player1
 @onready var _level : Area2D = $Level1
-#@onready var _coin_counter : Control = $UserInterface/CoinCounter
+#@onready var _kivi_counter : Control = $UserInterface/KiviCounter
 #@onready var _lives_counter : Control = $UserInterface/LivesCounter
 
 
@@ -21,16 +21,16 @@ func _init_boundaries():
 
 #func _init_ui():
 	#initialize the UI
-#	_coin_counter.set_value(File.data.kiuaskivet)
+#	_kivi_counter.set_value(File.data.kiuaskivet)
 #	_lives_counter.set_value(File.data.lives)
 
-func collect_coin(value : int):
-	File.data.coins += value
-	if File.data.coins >= 100:
-		File.data.coins -= 100
+func collect_kivi(value : int):
+	File.data.kiuaskivet += value
+	if File.data.kiuaskivet>= 100:
+		File.data.kiuaskivet -= 100
 		File.data.lives += 1
 #		_lives_counter.set_value(File.data.lives)
-#	_coin_counter.set_value(File.data.kiuaskivet)
+#	_kivi_counter.set_value(File.data.kiuaskivet)
 
 func collect_skull():
 	File.data.lives += 1
