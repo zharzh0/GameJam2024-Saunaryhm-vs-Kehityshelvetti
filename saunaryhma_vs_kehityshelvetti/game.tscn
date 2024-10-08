@@ -21,7 +21,7 @@ scale = Vector2(0.825, 0.825)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
 position = Vector2(688, 392)
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 script = ExtResource("1_gulgi")
 _subject = NodePath("../Player1")
 _offset = Vector2(-2, -1)
@@ -29,6 +29,7 @@ _look_ahead_duration = 2.0
 _floor_height_duration = 0.25
 
 [node name="Player1" parent="." instance=ExtResource("1_5fyvd")]
+z_index = 1
 position = Vector2(130, 468)
 _jump_height = 3.0
 
@@ -38,7 +39,7 @@ script = ExtResource("2_t50lp")
 [node name="Level1" parent="." instance=ExtResource("3_w88do")]
 
 [node name="Enemy2" parent="." instance=ExtResource("7_2is68")]
-position = Vector2(1098, 476)
+position = Vector2(797, 468)
 
 [connection signal="changed_direction" from="Player1" to="Camera2D" method="_on_subject_changed_direction"]
 [connection signal="landed" from="Player1" to="Camera2D" method="_on_subject_landed"]
