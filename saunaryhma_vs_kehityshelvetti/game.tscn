@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxdncio0wgpnu"]
+[gd_scene load_steps=7 format=3 uid="uid://dvf0ego1c1ta7"]
 
 [ext_resource type="PackedScene" uid="uid://t1kf7ienpq8h" path="res://Scenes/Characters/player1.tscn" id="1_5fyvd"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7cnib"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_t50lp"]
 [ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="2_x2uub"]
 [ext_resource type="PackedScene" uid="uid://yssdwn2jv46g" path="res://Scenes/Levels/level1.tscn" id="3_w88do"]
-[ext_resource type="PackedScene" uid="uid://b23iwsk0sk11c" path="res://Scenes/Characters/enemy_smart.tscn" id="8_0ldcw"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7cnib")
@@ -36,10 +35,7 @@ _jump_height = 3.0
 script = ExtResource("2_t50lp")
 
 [node name="Level1" parent="." instance=ExtResource("3_w88do")]
-
-[node name="Enemy3" parent="." instance=ExtResource("8_0ldcw")]
-position = Vector2(739, 501)
-can_levitate = false
+position = Vector2(24, 20)
 
 [connection signal="changed_direction" from="Player1" to="Camera2D" method="_on_subject_changed_direction"]
 [connection signal="landed" from="Player1" to="Camera2D" method="_on_subject_landed"]
