@@ -20,8 +20,8 @@ target_position = Vector2(68, 0)
 target_position = Vector2(-69, 0)
 
 [node name="Killzone" parent="." instance=ExtResource("3_uxfa0")]
+collision_layer = 65536
+collision_mask = 257
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("RectangleShape2D_fs3il")
-
-[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
