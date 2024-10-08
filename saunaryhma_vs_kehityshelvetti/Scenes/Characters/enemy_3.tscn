@@ -11,7 +11,6 @@ size = Vector2(19, 64)
 size = Vector2(30, 64)
 
 [node name="Enemy3" type="CharacterBody2D"]
-slide_on_ceiling = false
 script = ExtResource("1_dkalt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

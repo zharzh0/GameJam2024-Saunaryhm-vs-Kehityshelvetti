@@ -54,5 +54,3 @@ func _process(delta: float) -> void:
 	# Flip the sprite based on direction
 	if velocity.x != 0:
 		$Sprite2D.flip_h = velocity.x < 0
-
-	print("Moving towards Player")  # Debugging output for movement
