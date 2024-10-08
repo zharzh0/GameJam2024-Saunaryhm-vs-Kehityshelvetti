@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7cnib"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="1_gulgi"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_t50lp"]
-[ext_resource type="PackedScene" uid="uid://dv8v7sks6bomp" path="res://Scenes/background.tscn" id="2_x2uub"]
+[ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="2_x2uub"]
 [ext_resource type="PackedScene" uid="uid://yssdwn2jv46g" path="res://Scenes/Levels/level1.tscn" id="3_w88do"]
-[ext_resource type="PackedScene" uid="uid://db2eirfo2jqy6" path="res://Scenes/enemy_2.tscn" id="7_2is68"]
+[ext_resource type="PackedScene" uid="uid://db2eirfo2jqy6" path="res://Scenes/Characters/enemy_2.tscn" id="7_2is68"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7cnib")
@@ -21,16 +21,18 @@ scale = Vector2(0.825, 0.825)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
 position = Vector2(688, 392)
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 script = ExtResource("1_gulgi")
 _subject = NodePath("../Player1")
 _offset = Vector2(-2, -1)
 _look_ahead_duration = 2.0
+_floor_height_duration = 0.25
 
 [node name="Player1" parent="." instance=ExtResource("1_5fyvd")]
-position = Vector2(392, 488)
+position = Vector2(130, 468)
 collision_layer = 256
 collision_mask = 65537
+_jump_height = 3.0
 
 [node name="Player" type="Node" parent="Player1"]
 script = ExtResource("2_t50lp")
@@ -38,7 +40,7 @@ script = ExtResource("2_t50lp")
 [node name="Level1" parent="." instance=ExtResource("3_w88do")]
 
 [node name="Enemy2" parent="." instance=ExtResource("7_2is68")]
-position = Vector2(202, 469)
+position = Vector2(1098, 476)
 
 [connection signal="changed_direction" from="Player1" to="Camera2D" method="_on_subject_changed_direction"]
 [connection signal="landed" from="Player1" to="Camera2D" method="_on_subject_landed"]
