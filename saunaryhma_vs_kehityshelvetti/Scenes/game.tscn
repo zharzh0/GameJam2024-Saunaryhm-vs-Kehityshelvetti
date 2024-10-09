@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxdncio0wgpnu"]
+[gd_scene load_steps=20 format=3 uid="uid://cxdncio0wgpnu"]
 
 [ext_resource type="PackedScene" uid="uid://t1kf7ienpq8h" path="res://Scenes/Characters/player1.tscn" id="1_5fyvd"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7cnib"]
@@ -6,6 +6,19 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_t50lp"]
 [ext_resource type="PackedScene" uid="uid://dv8v7sks6bomp" path="res://Scenes/background.tscn" id="2_x2uub"]
 [ext_resource type="PackedScene" uid="uid://yssdwn2jv46g" path="res://Scenes/Levels/level1.tscn" id="3_w88do"]
+[ext_resource type="Script" path="res://Scripts/counter.gd" id="7_ep43s"]
+[ext_resource type="Texture2D" uid="uid://ch3gfqpsoe2ib" path="res://Resources/Small Text/36.png" id="8_dwrfo"]
+[ext_resource type="Texture2D" uid="uid://oh2uwpjdmbyr" path="res://Resources/Small Text/27.png" id="9_aemhj"]
+[ext_resource type="Texture2D" uid="uid://xy6bmwr7w3jp" path="res://Resources/Small Text/28.png" id="10_i5fki"]
+[ext_resource type="Texture2D" uid="uid://b0ikj8o76mxud" path="res://Resources/Small Text/29.png" id="11_512pg"]
+[ext_resource type="Texture2D" uid="uid://cxlaxd6jtexx1" path="res://Resources/Small Text/30.png" id="12_ldla2"]
+[ext_resource type="Texture2D" uid="uid://5hddjyi124fa" path="res://Resources/Small Text/31.png" id="13_hkb25"]
+[ext_resource type="Texture2D" uid="uid://ds3pvcc8hgi7" path="res://Resources/Small Text/32.png" id="14_66vix"]
+[ext_resource type="Texture2D" uid="uid://dtansa2hbgko2" path="res://Resources/Small Text/33.png" id="15_qvtve"]
+[ext_resource type="Texture2D" uid="uid://baijdosmxgvgq" path="res://Resources/Small Text/34.png" id="16_1ll0c"]
+[ext_resource type="Texture2D" uid="uid://gg07pepnp88n" path="res://Resources/Small Text/35.png" id="17_stci3"]
+[ext_resource type="Texture2D" uid="uid://bnn8bxx0k7cc3" path="res://Resources/Sprites/Kiuskivi/greystone01.png" id="18_rqwu4"]
+[ext_resource type="Texture2D" uid="uid://cjtxg52d88q7r" path="res://Resources/saunaryhmä1.png" id="19_ahmd7"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7cnib")
@@ -35,6 +48,66 @@ _jump_height = 3.0
 script = ExtResource("2_t50lp")
 
 [node name="Level1" parent="." instance=ExtResource("3_w88do")]
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="KiviCounter" type="HBoxContainer" parent="UserInterface"]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 100.0
+offset_bottom = 72.0
+scale = Vector2(2, 2)
+script = ExtResource("7_ep43s")
+_digits = Array[Texture2D]([ExtResource("8_dwrfo"), ExtResource("9_aemhj"), ExtResource("10_i5fki"), ExtResource("11_512pg"), ExtResource("12_ldla2"), ExtResource("13_hkb25"), ExtResource("14_66vix"), ExtResource("15_qvtve"), ExtResource("16_1ll0c"), ExtResource("17_stci3")])
+
+[node name="Icon" type="TextureRect" parent="UserInterface/KiviCounter"]
+layout_mode = 2
+texture = ExtResource("18_rqwu4")
+expand_mode = 3
+
+[node name="Tens" type="TextureRect" parent="UserInterface/KiviCounter"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+texture = ExtResource("8_dwrfo")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Ones" type="TextureRect" parent="UserInterface/KiviCounter"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+texture = ExtResource("8_dwrfo")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="LivesCounter" type="HBoxContainer" parent="UserInterface"]
+layout_direction = 3
+offset_left = 115.0
+offset_top = 32.0
+offset_right = 198.0
+offset_bottom = 72.0
+scale = Vector2(2, 2)
+script = ExtResource("7_ep43s")
+_digits = Array[Texture2D]([ExtResource("8_dwrfo"), ExtResource("9_aemhj"), ExtResource("10_i5fki"), ExtResource("11_512pg"), ExtResource("12_ldla2"), ExtResource("13_hkb25"), ExtResource("14_66vix"), ExtResource("15_qvtve"), ExtResource("16_1ll0c"), ExtResource("17_stci3")])
+
+[node name="Icon" type="TextureRect" parent="UserInterface/LivesCounter"]
+layout_mode = 2
+texture = ExtResource("19_ahmd7")
+expand_mode = 3
+flip_h = true
+
+[node name="Ones" type="TextureRect" parent="UserInterface/LivesCounter"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+texture = ExtResource("8_dwrfo")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Tens" type="TextureRect" parent="UserInterface/LivesCounter"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+texture = ExtResource("8_dwrfo")
+expand_mode = 5
+stretch_mode = 5
 
 [connection signal="changed_direction" from="Player1" to="Camera2D" method="_on_subject_changed_direction"]
 [connection signal="landed" from="Player1" to="Camera2D" method="_on_subject_landed"]

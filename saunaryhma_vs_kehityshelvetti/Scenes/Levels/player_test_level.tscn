@@ -37,7 +37,7 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_d3ven")
 
-[node name="Level1" type="Area2D"]
+[node name="player_test_level" type="Area2D"]
 script = ExtResource("1_pqip4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

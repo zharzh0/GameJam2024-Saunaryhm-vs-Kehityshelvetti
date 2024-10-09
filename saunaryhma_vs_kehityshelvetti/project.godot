@@ -20,6 +20,14 @@ config/icon="res://icon.svg"
 Global="*res://Scripts/Autoloads/global.gd"
 File="*res://Scripts/Autoloads/file.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=0
+
 [dotnet]
 
 project/assembly_name="Saunaryhma_vs_kehityshelvetti"
