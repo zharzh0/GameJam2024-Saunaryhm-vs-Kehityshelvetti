@@ -9,12 +9,13 @@ func _ready():
 # Function called when any body enters the killzone
 func _on_body_entered(body):
 	print("Collision detected with: ", body.name)  # Debugging output
-	if body.name == "Player1":  # Ensure that only the player triggers the kill
-		print("Player killed!")
-		Engine.time_scale = 0.5
-		body.emit_signal("died")  # Lähetä signaali hahmon kuolemasta
-		body.get_node("CollisionShape2D").queue_free()
-		timer.start()
+	if body.name == "Player1" and body.has_method("take_damage"):
+		body.take_damage()  # Call the take_damage method on the player
+		if body._health <= 0:
+			print("Player killed!")
+			Engine.time_scale = 0.5
+			body.get_node("CollisionShape2D").queue_free()
+			timer.start()
 
 func _on_timer_timeout():
 	print("Timer finished, reloading the scene...")  # Debug

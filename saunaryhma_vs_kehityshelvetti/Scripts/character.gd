@@ -117,3 +117,14 @@ func _spawn_dust(dust : PackedScene):
 	_dust.position = position
 	_dust.flip_h = _sprite.flip_h
 	get_parent().add_child(_dust)
+
+# Add this to your existing variables
+var _health : int = 100  # Initial health value
+
+# Add this method to handle taking damage
+func take_damage(amount: int = 10):  # Default damage amount is 10
+	_health -= amount
+	print("Health remaining: ", _health)  # Print the remaining health
+	if _health <= 0:
+		_health = 0
+		died.emit()  # Emit the 'died' signal when health reaches zero

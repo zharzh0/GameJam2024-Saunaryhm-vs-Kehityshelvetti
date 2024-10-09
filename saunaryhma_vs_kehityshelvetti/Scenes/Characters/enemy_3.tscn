@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu2qill0mm0jr"]
+[gd_scene load_steps=6 format=3 uid="uid://bmylvtjl6xmyv"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_3.gd" id="1_dkalt"]
 [ext_resource type="Texture2D" uid="uid://24p8w8e45w53" path="res://Resources/koodari1.png" id="2_txql3"]
-[ext_resource type="PackedScene" uid="uid://beqlv2lskm7bw" path="res://Scenes/killzone.tscn" id="3_u44qm"]
+[ext_resource type="PackedScene" uid="uid://yh027824a26b" path="res://Scenes/killzone.tscn" id="3_u44qm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yclsf"]
 size = Vector2(19, 64)
@@ -12,7 +12,6 @@ size = Vector2(30, 64)
 
 [node name="Enemy3" type="CharacterBody2D"]
 collision_layer = 16777216
-collision_mask = 257
 script = ExtResource("1_dkalt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

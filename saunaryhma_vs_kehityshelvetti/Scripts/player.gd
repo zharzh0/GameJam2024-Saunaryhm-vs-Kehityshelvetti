@@ -11,3 +11,7 @@ func _input(event : InputEvent):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float):
 	_character.run(Input.get_axis("run_left", "run_right"))
+
+# Add this to your _ready function
+func _ready():
+	print("Player ready")

@@ -19,6 +19,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		print("Player killed!")
-		body.emit_signal("died")  # Lähetä signaali hahmon kuolemasta
-		get_tree().reload_current_scene()
+		if body.has_method("take_damage"):
+			body.take_damage()  # Call the take_damage method on the player
+			if body._health <= 0:
+				print("Player killed!")
+				get_tree().reload_current_scene()

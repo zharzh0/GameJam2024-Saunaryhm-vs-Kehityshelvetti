@@ -54,3 +54,10 @@ func _process(delta: float) -> void:
 	# Flip the sprite based on direction
 	if velocity.x != 0:
 		$Sprite2D.flip_h = velocity.x < 0
+
+func _on_killzone_body_entered(body):
+	if body.name == "Player1" and body.has_method("take_damage"):
+		body.take_damage()  # Call the take_damage method on the player
+		if body._health <= 0:
+			print("Player killed!")
+			get_tree().reload_current_scene()

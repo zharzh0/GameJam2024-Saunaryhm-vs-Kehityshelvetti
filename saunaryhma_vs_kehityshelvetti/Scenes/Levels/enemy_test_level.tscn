@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://ct8jiotsecs7g"]
+[gd_scene load_steps=8 format=4 uid="uid://2evj3qo2vuv1"]
 
 [ext_resource type="Script" path="res://Scripts/Autoloads/level.gd" id="1_2hiuy"]
 [ext_resource type="Texture2D" uid="uid://cvs4sewpasl20" path="res://Resources/floor_tile1.png" id="2_0x16j"]
-[ext_resource type="PackedScene" uid="uid://bokm5pa0a1ivx" path="res://Scenes/Decorations/kiuaskivi.tscn" id="3_ahbem"]
-[ext_resource type="PackedScene" uid="uid://cu2qill0mm0jr" path="res://Scenes/Characters/enemy_3.tscn" id="4_pdhse"]
+[ext_resource type="PackedScene" uid="uid://c2qnmcykpxf7d" path="res://Scenes/Decorations/kiuaskivi.tscn" id="3_ahbem"]
+[ext_resource type="PackedScene" uid="uid://bmylvtjl6xmyv" path="res://Scenes/Characters/enemy_3.tscn" id="4_pdhse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71ij5"]
 size = Vector2(1161.5, 661)

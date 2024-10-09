@@ -1,15 +1,16 @@
-[gd_scene load_steps=9 format=4 uid="uid://yssdwn2jv46g"]
+[gd_scene load_steps=10 format=4 uid="uid://yssdwn2jv46g"]
 
 [ext_resource type="Script" path="res://Scripts/Autoloads/level.gd" id="1_2a3od"]
 [ext_resource type="Texture2D" uid="uid://cvs4sewpasl20" path="res://Resources/floor_tile1.png" id="1_rs73u"]
 [ext_resource type="PackedScene" uid="uid://c2qnmcykpxf7d" path="res://Scenes/Decorations/kiuaskivi.tscn" id="4_8oa2m"]
-[ext_resource type="PackedScene" uid="uid://c0senstd3athn" path="res://elevator.tscn" id="4_ewqcb"]
+[ext_resource type="PackedScene" uid="uid://bfbnt85wq72t0" path="res://elevator.tscn" id="4_ewqcb"]
 [ext_resource type="PackedScene" uid="uid://bmylvtjl6xmyv" path="res://Scenes/Characters/enemy_3.tscn" id="5_cmspe"]
+[ext_resource type="PackedScene" uid="uid://b08lo3cwa2xpo" path="res://Scenes/level_transition_zone.tscn" id="6_abcde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71ij5"]
 size = Vector2(1161.5, 661)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d3ven"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwt3x"]
 texture = ExtResource("1_rs73u")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
@@ -36,7 +37,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_r24h2"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_d3ven")
+sources/1 = SubResource("TileSetAtlasSource_uwt3x")
 
 [node name="Level1" type="Area2D"]
 script = ExtResource("1_2a3od")
@@ -76,4 +77,7 @@ position = Vector2(51, 508)
 position = Vector2(254, 470)
 
 [node name="Enemy3" parent="." instance=ExtResource("5_cmspe")]
-position = Vector2(418, 348)
+position = Vector2(644, 497)
+
+[node name="LevelTransitionZone" parent="." instance=ExtResource("6_abcde")]
+position = Vector2(954, 481)
