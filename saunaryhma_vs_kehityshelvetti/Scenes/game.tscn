@@ -42,7 +42,13 @@ _floor_height_duration = 0.25
 
 [node name="Player1" parent="." instance=ExtResource("1_5fyvd")]
 position = Vector2(130, 468)
+_speed = null
+_acceleration = null
+_deceleration = null
 _jump_height = 3.0
+_air_control = null
+_is_facing_left = null
+_flipped = null
 
 [node name="Player" type="Node" parent="Player1"]
 script = ExtResource("2_t50lp")
