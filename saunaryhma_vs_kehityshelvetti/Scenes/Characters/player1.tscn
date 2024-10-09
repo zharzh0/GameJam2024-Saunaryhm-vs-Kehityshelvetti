@@ -9,7 +9,7 @@ size = Vector2(28, 64)
 [node name="Player1" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 256
-collision_mask = 65537
+collision_mask = 65543
 script = ExtResource("1_w4kdq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://c2qnmcykpxf7d"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/kiuaskivi.gd" id="1_54tga"]
+[ext_resource type="Script" path="res://Scripts/Treasure/kiuaskivi.gd" id="1_54tga"]
 [ext_resource type="Texture2D" uid="uid://bnn8bxx0k7cc3" path="res://Resources/Sprites/Kiuskivi/greystone01.png" id="2_llt3j"]
 [ext_resource type="Texture2D" uid="uid://dyjkugt73knu3" path="res://Resources/Sprites/Kiuskivi/greystone02.png" id="3_4282t"]
 [ext_resource type="Texture2D" uid="uid://bwixk0l1sb0la" path="res://Resources/Sprites/Kiuskivi/greystone03.png" id="4_dh3yy"]
