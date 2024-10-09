@@ -9,6 +9,7 @@ extends Node2D
 
 func _ready():
 	_init_boundaries()	
+
 #	_init_ui()
 
 func _init_boundaries():
