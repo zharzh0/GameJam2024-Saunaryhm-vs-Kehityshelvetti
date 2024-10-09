@@ -38,7 +38,7 @@ var _health: int = 100  # Initial health value
 # Attack Variables
 var is_attacking: bool = false
 var attack_duration: float = 0.2  # Duration in seconds the attack area is active
-var attack_damage: int = 50  # Increased damage per attack
+var attack_damage: int = 20  # Increased damage per attack
 var attack_timer: Timer
 
 # Default Offset for MeleeAttack
@@ -191,3 +191,13 @@ func _on_melee_attack_body_entered(body: Node) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage(attack_damage)
 		print("Damaged via signal: ", body.name)
+
+func face_left() -> void:
+	_sprite.flip_h = true
+	_is_facing_left = true
+	changed_direction.emit(_is_facing_left)
+
+func face_right() -> void:
+	_sprite.flip_h = false
+	_is_facing_left = false
+	changed_direction.emit(_is_facing_left)

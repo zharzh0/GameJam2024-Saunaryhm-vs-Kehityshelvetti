@@ -7,20 +7,13 @@
 size = Vector2(28, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwlfk"]
-size = Vector2(22, 50)
+size = Vector2(42, 50)
 
 [node name="Player1" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 256
 collision_mask = 65543
 script = ExtResource("1_w4kdq")
-_speed = null
-_acceleration = null
-_deceleration = null
-_jump_height = null
-_air_control = null
-_is_facing_left = null
-_flipped = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_njsy6")
@@ -33,5 +26,5 @@ collision_layer = 256
 collision_mask = 65792
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeAttack"]
-position = Vector2(26, 1)
+position = Vector2(36, 1)
 shape = SubResource("RectangleShape2D_vwlfk")

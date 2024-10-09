@@ -12,7 +12,6 @@ size = Vector2(30, 64)
 
 [node name="Enemy3" type="CharacterBody2D"]
 collision_layer = 16842753
-collision_mask = 0
 script = ExtResource("1_dkalt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
