@@ -1,3 +1,5 @@
+
+
 extends Area2D
 
 @onready var timer: Timer = $Timer
@@ -5,12 +7,14 @@ extends Area2D
 func _ready():
 	pass
 
-
 # Function called when any body enters the killzone
 func _on_body_entered(body):
-	print("Collision detected with: ", body.name)  # Debugging output
 	if body.name == "Player1" and body.has_method("take_damage"):
-		body.take_damage()  # Call the take_damage method on the player
+		var direction_to_player = (body.global_position - global_position).normalized()
+		body.take_damage(direction_to_player, 10)  # You can add a custom knockback here if needed
+
+		# Assuming the direction is from the killzone to the player:
+		  # Call the take_damage method on the player with direction
 		if body._health <= 0:
 			print("Player killed!")
 			Engine.time_scale = 0.5

@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 		velocity.y += GRAVITY * delta
 	else:
 		velocity.y = 0
+	
 
 	if player:
 		if not is_following:
@@ -56,12 +57,10 @@ func _process(delta: float) -> void:
 	if velocity.x != 0:
 		$Sprite2D.flip_h = velocity.x < 0
 
-func _on_killzone_body_entered(body):
-	if body.name == "Player1" and body.has_method("take_damage"):
-		body.take_damage()
-		if body._health <= 0:
-			print("Player killed!")
-			get_tree().reload_current_scene()
+func _on_killzone_body_entered(body: Node) -> void:
+	if body.is_in_group("enemies"):
+		body.call_deferred("queue_free")  # Safely queues the node for deletion
+
 
 func take_damage(amount: int = 10) -> void:
 	_health -= amount

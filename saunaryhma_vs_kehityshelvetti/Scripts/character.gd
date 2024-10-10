@@ -19,6 +19,8 @@ class_name Character extends CharacterBody2D
 @export var attack_duration: float = 0.2  # Duration in seconds the attack area is active
 @export var attack_damage: int = 1  # Increased damage per attack
 @export var attack_timer: Timer
+var knockback_strength: float = 500  # Adjust this value for knockback strength
+
 
 # Nodes and References
 @onready var _sprite: Sprite2D = $Sprite2D
@@ -39,11 +41,8 @@ signal health_changed(new_health: int)  # New signal for health changes
 
 # Physics and Movement
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var _direction: float
+var _direction: float = 10
 var _health: int = 99  # Initial health value
-
-# Attack Variables
-
 
 # Default Offset for MeleeAttack
 var melee_attack_default_offset_x: float = 26  # From scene's position.x
@@ -79,7 +78,6 @@ func _ready():
 	melee_attack_default_offset_x = melee_attack.position.x
 
 #region Public Methods
-
 
 func set_bounds(min_boundary: Vector2, max_boundary: Vector2):
 	_is_bound = true
@@ -153,15 +151,21 @@ func _spawn_dust(dust: PackedScene):
 
 # Health and Damage Methods
 
-func take_damage(amount: int = 10) -> void:
+func take_damage(direction: Vector2, amount: int = 10):
 	_health -= amount
 	_health = clamp(_health, 0, 100)  # Ensure health stays within bounds
 	print("Health remaining: ", _health)
-	health_changed.emit(_health)  # Emit health changed signal
+	health_changed.emit(_health)  # Emit the health changed signal
+
+	# Apply knockback using the direction and knockback strength
+	velocity = direction * knockback_strength  # Adjust this to tweak the knockback strength
+	
 	if _health <= 0:
 		_health = 0
 		died.emit()  # Emit the 'died' signal when health reaches zero
 		die()
+
+
 
 func die() -> void:
 	print("Character died: ", self.name)
