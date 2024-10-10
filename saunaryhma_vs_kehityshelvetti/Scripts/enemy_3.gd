@@ -13,6 +13,7 @@ const GRAVITY = 300
 @onready var killzone: Area2D = $Killzone
 @onready var idle_sound: AudioStreamPlayer2D = $IdleSound  # Refers to the idle sound
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound  # Refers to the death sound
+@onready var hit_sound: AudioStreamPlayer2D = $HitSound
 
 
 
@@ -72,6 +73,8 @@ func _on_killzone_body_entered(body: Node) -> void:
 func take_damage(amount: int = 10, knockback_direction: Vector2 = Vector2.ZERO) -> void:
 	_health -= amount
 	print("Enemy health: ", _health)
+	
+	hit_sound.play()
 
 	# Apply knockback
 	if knockback_direction != Vector2.ZERO:
