@@ -6,6 +6,7 @@ extends Node2D
 @onready var _kivi_counter : Control = $UserInterface/KiviCounter
 @onready var _lives_counter : Control = $UserInterface/LivesCounter
 @onready var _collectibles_label : Label = $CollectiblesLabel  # Updated path
+@onready var background_music : AudioStreamPlayer2D = $Music
 
 func _ready():
 	_init_boundaries()
@@ -14,6 +15,7 @@ func _ready():
 	_player_character.connect("health_changed", Callable(self, "_on_health_changed"))
 	# Connect the died signal to reset collectibles
 	_player_character.connect("died", Callable(self, "_on_player_died"))
+	background_music.play()
 
 func _init_boundaries():
 	# get the level boundaries from the level
