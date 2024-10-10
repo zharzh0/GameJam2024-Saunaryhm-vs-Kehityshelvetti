@@ -14,10 +14,14 @@ const GRAVITY = 300
 @onready var idle_sound: AudioStreamPlayer2D = $IdleSound  # Refers to the idle sound
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound  # Refers to the death sound
 
+
+
 var player: CharacterBody2D = null
 var is_following = false
 var movement_velocity = Vector2.ZERO
 var _health: int = 3  # Initial health
+var knockback_strength: float = 300 
+var knockback_deceleration: float = 100
 
 func _ready() -> void:
 	player = get_tree().get_root().get_node("Game/Player1")
@@ -28,6 +32,7 @@ func _ready() -> void:
 	idle_sound.play()
 	
 func _process(delta: float) -> void:
+	
 	if not can_levitate:
 		velocity.y += GRAVITY * delta
 	else:
@@ -64,13 +69,22 @@ func _on_killzone_body_entered(body: Node) -> void:
 		body.call_deferred("queue_free")  # Safely queues the node for deletion
 
 
-func take_damage(amount: int = 10) -> void:
+func take_damage(amount: int = 10, knockback_direction: Vector2 = Vector2.ZERO) -> void:
 	_health -= amount
 	print("Enemy health: ", _health)
+
+	# Apply knockback
+	if knockback_direction != Vector2.ZERO:
+		velocity = knockback_direction * knockback_strength
+
+	# Check if the enemy's health reaches 0
 	if _health <= 0:
 		_health = 0
 		died.emit()  # Emit the 'died' signal when health reaches zero
 		die()
+
+# A placeholder for velocity, assuming you have velocity handling
+
 
 func die() -> void:
 	print("Enemy died: ", self.name)
