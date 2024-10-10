@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://t1kf7ienpq8h"]
+[gd_scene load_steps=38 format=3 uid="uid://t1kf7ienpq8h"]
 
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_w4kdq"]
 [ext_resource type="Texture2D" uid="uid://cjtxg52d88q7r" path="res://Resources/Pelaaja/saunaryhmä1.png" id="2_njsy6"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b400m20gbhm3v" path="res://Resources/Pelaaja/idle/saunaryhmä_idle2.png" id="4_iccwb"]
 [ext_resource type="Texture2D" uid="uid://cgwbwvsclxjvh" path="res://Resources/Pelaaja/idle/saunaryhmä_idle3.png" id="5_a3xp5"]
 [ext_resource type="Texture2D" uid="uid://prspmkgsoq3a" path="res://Resources/Pelaaja/idle/saunaryhmä_idle4.png" id="6_3uj57"]
+[ext_resource type="AudioStream" uid="uid://cevswgulcdm1e" path="res://Resources/Audio Effects/595805__combatsfx4you__3-crowbar-hits.wav" id="6_hgdrb"]
+[ext_resource type="AudioStream" uid="uid://b48f5c2fs7qty" path="res://Resources/Audio Effects/695380__fmaudio__male-attack-grunt-3.wav" id="7_tnto4"]
 [ext_resource type="Texture2D" uid="uid://b2o4mslpvkips" path="res://Resources/Pelaaja/idle_blink/saunaryhmä_idle_blink1.png" id="7_twn1e"]
 [ext_resource type="Texture2D" uid="uid://k3stmkly4lfa" path="res://Resources/Pelaaja/idle_blink/saunaryhmä_idle_blink2.png" id="8_2wkjy"]
 [ext_resource type="Texture2D" uid="uid://c4h5c0od50fy7" path="res://Resources/Pelaaja/idle_blink/saunaryhmä_idle_blink3.png" id="9_fchbb"]
@@ -45,10 +47,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("11_o5duj"), ExtResource("12_o1t10"), ExtResource("13_chjsm")]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 4.0685,
+"start_offset": 0.648501,
+"stream": ExtResource("6_hgdrb")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_hv54v"]
 resource_name = "jump"
-length = 0.1
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -61,6 +78,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("14_gte13")]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.100905,
+"start_offset": 0.047,
+"stream": ExtResource("7_tnto4")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_fr4ls"]
 resource_name = "player_idle"
@@ -186,6 +218,8 @@ root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_rgmqr")
 advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D/AnimationPlayer"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_m5rl6")

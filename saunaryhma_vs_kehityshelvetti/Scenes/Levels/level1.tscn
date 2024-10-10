@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Autoloads/level.gd" id="1_2a3od"]
 [ext_resource type="Texture2D" uid="uid://cvs4sewpasl20" path="res://Resources/floor_tile1.png" id="1_rs73u"]
 [ext_resource type="PackedScene" uid="uid://c2qnmcykpxf7d" path="res://Scenes/Decorations/kiuaskivi.tscn" id="4_8oa2m"]
-[ext_resource type="PackedScene" uid="uid://c0senstd3athn" path="res://elevator.tscn" id="4_ewqcb"]
+[ext_resource type="PackedScene" uid="uid://bfbnt85wq72t0" path="res://elevator.tscn" id="4_ewqcb"]
 [ext_resource type="PackedScene" uid="uid://bmylvtjl6xmyv" path="res://Scenes/Characters/enemy_3.tscn" id="5_cmspe"]
 [ext_resource type="Texture2D" uid="uid://bspvhgn20ahdt" path="res://Resources/office-tilemap.png" id="6_g3by2"]
 [ext_resource type="Texture2D" uid="uid://bc1u05wdl4s8w" path="res://Resources/liekki1.png" id="7_yj271"]

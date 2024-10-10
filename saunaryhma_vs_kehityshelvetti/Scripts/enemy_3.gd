@@ -11,6 +11,8 @@ const GRAVITY = 300
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var killzone: Area2D = $Killzone
+@onready var idle_sound: AudioStreamPlayer2D = $IdleSound  # Refers to the idle sound
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound  # Refers to the death sound
 
 var player: CharacterBody2D = null
 var is_following = false
@@ -21,7 +23,8 @@ func _ready() -> void:
 	player = get_tree().get_root().get_node("Game/Player1")
 	print("Enemy initialized. Player found: ", player != null)
 	killzone.connect("body_entered", Callable(self, "_on_killzone_body_entered"))
-
+	idle_sound.play()
+	
 func _process(delta: float) -> void:
 	if not can_levitate:
 		velocity.y += GRAVITY * delta
@@ -70,6 +73,9 @@ func take_damage(amount: int = 10) -> void:
 
 func die() -> void:
 	print("Enemy died: ", self.name)
+	idle_sound.stop()  # Stop the idle sound
+	death_sound.play()  # Play the death sound
+	await get_tree().create_timer(death_sound.stream.get_length()).timeout
 	queue_free()
 
 # Add these functions to handle sprite flipping
