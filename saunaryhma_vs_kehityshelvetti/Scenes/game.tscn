@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://bbqabpxiaents"]
+[gd_scene load_steps=20 format=3 uid="uid://cxdncio0wgpnu"]
 
 [ext_resource type="PackedScene" uid="uid://t1kf7ienpq8h" path="res://Scenes/Characters/player1.tscn" id="1_5fyvd"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7cnib"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="1_gulgi"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_t50lp"]
-[ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="2_x2uub"]
+[ext_resource type="PackedScene" uid="uid://dv8v7sks6bomp" path="res://Scenes/background.tscn" id="2_x2uub"]
 [ext_resource type="PackedScene" uid="uid://yssdwn2jv46g" path="res://Scenes/Levels/level1.tscn" id="3_w88do"]
 [ext_resource type="Script" path="res://Scripts/counter.gd" id="7_ep43s"]
 [ext_resource type="Texture2D" uid="uid://ch3gfqpsoe2ib" path="res://Resources/Small Text/36.png" id="8_dwrfo"]
@@ -119,6 +119,18 @@ theme_override_font_sizes/font_size = 11
 text = "W - jump
 AD - move
 Space - attack"
+
+[node name="CollectiblesLabel" type="Label" parent="."]
+offset_left = 3938.0
+offset_top = 367.0
+offset_right = 4080.0
+offset_bottom = 443.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.255659, 0.255659, 0.255659, 1)
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="changed_direction" from="Player1" to="Camera2D" method="_on_subject_changed_direction"]
 [connection signal="landed" from="Player1" to="Camera2D" method="_on_subject_landed"]
