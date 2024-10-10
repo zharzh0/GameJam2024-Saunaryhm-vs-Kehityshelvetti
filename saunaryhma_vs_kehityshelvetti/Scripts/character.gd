@@ -35,11 +35,12 @@ var _jump_velocity: float
 signal died
 signal changed_direction(is_facing_left: bool)
 signal landed(floor_height: float)
+signal health_changed(new_health: int)  # New signal for health changes
 
 # Physics and Movement
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _direction: float
-var _health: int = 100  # Initial health value
+var _health: int = 99  # Initial health value
 
 # Attack Variables
 
@@ -154,7 +155,9 @@ func _spawn_dust(dust: PackedScene):
 
 func take_damage(amount: int = 10) -> void:
 	_health -= amount
+	_health = clamp(_health, 0, 100)  # Ensure health stays within bounds
 	print("Health remaining: ", _health)
+	health_changed.emit(_health)  # Emit health changed signal
 	if _health <= 0:
 		_health = 0
 		died.emit()  # Emit the 'died' signal when health reaches zero
