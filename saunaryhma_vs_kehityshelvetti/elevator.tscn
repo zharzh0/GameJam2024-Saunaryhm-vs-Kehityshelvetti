@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bfbnt85wq72t0"]
+[gd_scene load_steps=31 format=3 uid="uid://c0senstd3athn"]
 
 [ext_resource type="Texture2D" uid="uid://b1jjgk4oux5sj" path="res://Resources/Sprite-0001-Sheet1.png" id="1_la0mb"]
 [ext_resource type="Script" path="res://Scripts/Environment/elevator.gd" id="1_x10of"]
