@@ -4,8 +4,8 @@ extends CharacterBody2D  # Ensure this extends CharacterBody2D
 signal died  # Emitted when the enemy dies
 
 @export var can_levitate: bool = false  # Checkbox in Inspector
-const SPEED = 1
-const DETECTION_RADIUS = 200
+@export var SPEED = 1
+@export var DETECTION_RADIUS = 200
 const GRAVITY = 300
 
 @onready var ray_cast_right: RayCast2D = $RayCastRight

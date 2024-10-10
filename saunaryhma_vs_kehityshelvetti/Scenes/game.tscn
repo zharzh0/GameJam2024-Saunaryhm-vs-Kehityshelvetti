@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7cnib"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="1_gulgi"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_t50lp"]
-[ext_resource type="PackedScene" uid="uid://dv8v7sks6bomp" path="res://Scenes/background.tscn" id="2_x2uub"]
+[ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="2_x2uub"]
 [ext_resource type="PackedScene" uid="uid://yssdwn2jv46g" path="res://Scenes/Levels/level1.tscn" id="3_w88do"]
 [ext_resource type="Script" path="res://Scripts/counter.gd" id="7_ep43s"]
 [ext_resource type="Texture2D" uid="uid://ch3gfqpsoe2ib" path="res://Resources/Small Text/36.png" id="8_dwrfo"]
@@ -108,6 +108,17 @@ layout_mode = 2
 texture = ExtResource("8_dwrfo")
 expand_mode = 5
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+offset_left = 216.0
+offset_top = 361.0
+offset_right = 323.0
+offset_bottom = 436.0
+theme_override_colors/font_color = Color(0.18359, 0.18359, 0.18359, 1)
+theme_override_font_sizes/font_size = 11
+text = "W - jump
+AD - move
+Space - attack"
 
 [connection signal="changed_direction" from="Player1" to="Camera2D" method="_on_subject_changed_direction"]
 [connection signal="landed" from="Player1" to="Camera2D" method="_on_subject_landed"]
