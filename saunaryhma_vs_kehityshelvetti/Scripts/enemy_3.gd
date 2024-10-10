@@ -21,6 +21,8 @@ var _health: int = 3  # Initial health
 
 func _ready() -> void:
 	player = get_tree().get_root().get_node("Game/Player1")
+	if player:
+		player.connect("tree_exited", Callable(self, "_on_player_exited"))
 	print("Enemy initialized. Player found: ", player != null)
 	killzone.connect("body_entered", Callable(self, "_on_killzone_body_entered"))
 	idle_sound.play()
@@ -31,7 +33,7 @@ func _process(delta: float) -> void:
 	else:
 		velocity.y = 0
 	
-
+	# Check if the player is still valid
 	if player:
 		if not is_following:
 			var distance_to_player = position.distance_to(player.position)
@@ -83,3 +85,6 @@ func face_left() -> void:
 
 func face_right() -> void:
 	$Sprite2D.flip_h = false
+
+func _on_player_exited() -> void:
+	player = null

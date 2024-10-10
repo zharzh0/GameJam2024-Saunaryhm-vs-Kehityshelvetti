@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/enemy_3.gd" id="1_dkalt"]
 [ext_resource type="Texture2D" uid="uid://24p8w8e45w53" path="res://Resources/koodari1.png" id="2_txql3"]
-[ext_resource type="PackedScene" uid="uid://beqlv2lskm7bw" path="res://Scenes/killzone.tscn" id="3_u44qm"]
+[ext_resource type="PackedScene" uid="uid://yh027824a26b" path="res://Scenes/killzone.tscn" id="3_u44qm"]
 [ext_resource type="AudioStream" uid="uid://devnbdl4frn2o" path="res://Resources/Audio Effects/zombi.wav" id="4_1hfo5"]
 [ext_resource type="AudioStream" uid="uid://bl420vsjxyg6y" path="res://Resources/Audio Effects/744096__dreggsome__zombie-death.wav" id="5_g15xj"]
 
