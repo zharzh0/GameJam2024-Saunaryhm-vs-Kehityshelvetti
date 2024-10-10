@@ -17,7 +17,7 @@ class_name Character extends CharacterBody2D
 @export_category("Attack")
 @export var is_attacking: bool
 @export var attack_duration: float = 0.2  # Duration in seconds the attack area is active
-@export var attack_damage: int = 20  # Increased damage per attack
+@export var attack_damage: int = 1  # Increased damage per attack
 @export var attack_timer: Timer
 
 # Nodes and References
