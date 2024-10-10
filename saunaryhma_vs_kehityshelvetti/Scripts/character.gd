@@ -14,6 +14,12 @@ class_name Character extends CharacterBody2D
 @export var _is_facing_left: bool
 @export var _flipped: bool
 
+@export_category("Attack")
+@export var is_attacking: bool
+@export var attack_duration: float = 0.2  # Duration in seconds the attack area is active
+@export var attack_damage: int = 20  # Increased damage per attack
+@export var attack_timer: Timer
+
 # Nodes and References
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var melee_attack: Area2D = $MeleeAttack  # Reference to the MeleeAttack Area2D
@@ -36,10 +42,7 @@ var _direction: float
 var _health: int = 100  # Initial health value
 
 # Attack Variables
-var is_attacking: bool = false
-var attack_duration: float = 0.2  # Duration in seconds the attack area is active
-var attack_damage: int = 20  # Increased damage per attack
-var attack_timer: Timer
+
 
 # Default Offset for MeleeAttack
 var melee_attack_default_offset_x: float = 26  # From scene's position.x
@@ -75,6 +78,7 @@ func _ready():
 	melee_attack_default_offset_x = melee_attack.position.x
 
 #region Public Methods
+
 
 func set_bounds(min_boundary: Vector2, max_boundary: Vector2):
 	_is_bound = true
@@ -184,6 +188,7 @@ func _on_attack_timer_timeout() -> void:
 	melee_attack.monitoring = false  # Disable detection
 	is_attacking = false
 	print("Attack ended")
+	
 
 # Handle Bodies Entering MeleeAttack Area
 

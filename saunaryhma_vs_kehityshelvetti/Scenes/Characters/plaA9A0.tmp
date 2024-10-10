@@ -104,6 +104,9 @@ _data = {
 "player_idle_blink": SubResource("Animation_6uort")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_52b07"]
+animation = &"attack"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l6oso"]
 animation = &"player_idle"
 
@@ -116,9 +119,6 @@ states/player_idle/node = SubResource("AnimationNodeAnimation_l6oso")
 states/player_idle/position = Vector2(364, 92)
 transitions = ["Start", "player_idle", SubResource("AnimationNodeStateMachineTransition_fajkv")]
 graph_offset = Vector2(4, -122)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4asmr"]
-animation = &"attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1cu21"]
 animation = &"jump"
@@ -134,32 +134,32 @@ advance_expression = "velocity.y < 0"
 advance_mode = 2
 advance_expression = "velocity.y >= 0"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_smu5m"]
-advance_mode = 2
-advance_expression = "is_attacking"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yy7jg"]
-advance_mode = 2
-advance_expression = "not is_attacking"
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_yjfyj"]
 states/Locomotion/node = SubResource("AnimationNodeStateMachine_7u2rp")
 states/Locomotion/position = Vector2(490, 129)
-states/attack/node = SubResource("AnimationNodeAnimation_4asmr")
-states/attack/position = Vector2(532, -13)
 states/jump/node = SubResource("AnimationNodeAnimation_1cu21")
 states/jump/position = Vector2(452, 12)
-transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_j40g2"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_xqdh6"), "jump", "Locomotion", SubResource("AnimationNodeStateMachineTransition_h6kyt"), "Locomotion", "attack", SubResource("AnimationNodeStateMachineTransition_smu5m"), "attack", "Locomotion", SubResource("AnimationNodeStateMachineTransition_yy7jg")]
+transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_j40g2"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_xqdh6"), "jump", "Locomotion", SubResource("AnimationNodeStateMachineTransition_h6kyt")]
 graph_offset = Vector2(-224, -79)
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8t3rl"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_55axn"]
+advance_mode = 2
+advance_expression = "is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u4xf2"]
+advance_mode = 2
+advance_expression = "not _is_attacking"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rgmqr"]
+states/attack/node = SubResource("AnimationNodeAnimation_52b07")
+states/attack/position = Vector2(409, -5)
 states/movement/node = SubResource("AnimationNodeStateMachine_yjfyj")
 states/movement/position = Vector2(438, 110)
-transitions = ["Start", "movement", SubResource("AnimationNodeStateMachineTransition_8t3rl")]
-graph_offset = Vector2(-336, -110)
+transitions = ["Start", "movement", SubResource("AnimationNodeStateMachineTransition_8t3rl"), "movement", "attack", SubResource("AnimationNodeStateMachineTransition_55axn"), "attack", "movement", SubResource("AnimationNodeStateMachineTransition_u4xf2")]
+graph_offset = Vector2(-114, -96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5rl6"]
 size = Vector2(28, 64)

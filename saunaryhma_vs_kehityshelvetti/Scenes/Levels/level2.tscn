@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://dwv488rxbjfbx"]
+[gd_scene load_steps=9 format=4 uid="uid://c4kogv53wbe3y"]
 
 [ext_resource type="Script" path="res://Scripts/Autoloads/level.gd" id="1_xtevu"]
 [ext_resource type="Texture2D" uid="uid://cvs4sewpasl20" path="res://Resources/floor_tile1.png" id="2_e6m38"]
 [ext_resource type="PackedScene" uid="uid://c2qnmcykpxf7d" path="res://Scenes/Decorations/kiuaskivi.tscn" id="3_od8fj"]
-[ext_resource type="PackedScene" uid="uid://bfbnt85wq72t0" path="res://elevator.tscn" id="4_so6ag"]
+[ext_resource type="PackedScene" uid="uid://c0senstd3athn" path="res://elevator.tscn" id="4_so6ag"]
 [ext_resource type="PackedScene" uid="uid://bmylvtjl6xmyv" path="res://Scenes/Characters/enemy_3.tscn" id="5_8kjil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71ij5"]

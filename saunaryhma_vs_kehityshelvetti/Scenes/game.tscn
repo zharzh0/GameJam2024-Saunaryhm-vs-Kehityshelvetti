@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://bbqabpxiaents"]
+[gd_scene load_steps=20 format=3 uid="uid://cxdncio0wgpnu"]
 
 [ext_resource type="PackedScene" uid="uid://t1kf7ienpq8h" path="res://Scenes/Characters/player1.tscn" id="1_5fyvd"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7cnib"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="1_gulgi"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_t50lp"]
-[ext_resource type="PackedScene" uid="uid://dv8v7sks6bomp" path="res://Scenes/background.tscn" id="2_x2uub"]
+[ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="2_x2uub"]
 [ext_resource type="PackedScene" uid="uid://yssdwn2jv46g" path="res://Scenes/Levels/level1.tscn" id="3_w88do"]
 [ext_resource type="Script" path="res://Scripts/counter.gd" id="7_ep43s"]
 [ext_resource type="Texture2D" uid="uid://ch3gfqpsoe2ib" path="res://Resources/Small Text/36.png" id="8_dwrfo"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://baijdosmxgvgq" path="res://Resources/Small Text/34.png" id="16_1ll0c"]
 [ext_resource type="Texture2D" uid="uid://gg07pepnp88n" path="res://Resources/Small Text/35.png" id="17_stci3"]
 [ext_resource type="Texture2D" uid="uid://bnn8bxx0k7cc3" path="res://Resources/Sprites/Kiuskivi/greystone01.png" id="18_rqwu4"]
-[ext_resource type="Texture2D" uid="uid://cjtxg52d88q7r" path="res://Resources/saunaryhmä1.png" id="19_ahmd7"]
+[ext_resource type="Texture2D" uid="uid://cjtxg52d88q7r" path="res://Resources/Pelaaja/saunaryhmä1.png" id="19_ahmd7"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7cnib")
@@ -42,13 +42,7 @@ _floor_height_duration = 0.25
 
 [node name="Player1" parent="." instance=ExtResource("1_5fyvd")]
 position = Vector2(130, 468)
-_speed = 8.0
-_acceleration = 16.0
-_deceleration = 32.0
 _jump_height = 3.0
-_air_control = 0.5
-_is_facing_left = false
-_flipped = false
 
 [node name="Player" type="Node" parent="Player1"]
 script = ExtResource("2_t50lp")

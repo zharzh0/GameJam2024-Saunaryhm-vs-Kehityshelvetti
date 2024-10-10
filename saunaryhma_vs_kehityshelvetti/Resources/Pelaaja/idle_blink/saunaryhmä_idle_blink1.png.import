@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjtxg52d88q7r"
-path="res://.godot/imported/saunaryhmä1.png-9f04b2398fa3c605ba6d47861c2f40b7.ctex"
+uid="uid://b2o4mslpvkips"
+path="res://.godot/imported/saunaryhmä_idle_blink1.png-6b1d37d0e373672b7b66ba7a7e82d4e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/saunaryhmä1.png"
-dest_files=["res://.godot/imported/saunaryhmä1.png-9f04b2398fa3c605ba6d47861c2f40b7.ctex"]
+source_file="res://Resources/Pelaaja/idle_blink/saunaryhmä_idle_blink1.png"
+dest_files=["res://.godot/imported/saunaryhmä_idle_blink1.png-6b1d37d0e373672b7b66ba7a7e82d4e6.ctex"]
 
 [params]
 
