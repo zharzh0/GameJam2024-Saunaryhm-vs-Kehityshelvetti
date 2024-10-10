@@ -17,7 +17,7 @@ class_name Character extends CharacterBody2D
 @export_category("Attack")
 @export var is_attacking: bool
 @export var attack_duration: float = 0.2  # Duration in seconds the attack area is active
-@export var attack_damage: int = 20  # Increased damage per attack
+@export var attack_damage: int = 1  # Increased damage per attack
 @export var attack_timer: Timer
 
 # Nodes and References
@@ -35,11 +35,12 @@ var _jump_velocity: float
 signal died
 signal changed_direction(is_facing_left: bool)
 signal landed(floor_height: float)
+signal health_changed(new_health: int)  # New signal for health changes
 
 # Physics and Movement
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _direction: float
-var _health: int = 100  # Initial health value
+var _health: int = 99  # Initial health value
 
 # Attack Variables
 
@@ -154,7 +155,9 @@ func _spawn_dust(dust: PackedScene):
 
 func take_damage(amount: int = 10) -> void:
 	_health -= amount
+	_health = clamp(_health, 0, 100)  # Ensure health stays within bounds
 	print("Health remaining: ", _health)
+	health_changed.emit(_health)  # Emit health changed signal
 	if _health <= 0:
 		_health = 0
 		died.emit()  # Emit the 'died' signal when health reaches zero
@@ -200,9 +203,11 @@ func _on_melee_attack_body_entered(body: Node) -> void:
 func face_left() -> void:
 	_sprite.flip_h = true
 	_is_facing_left = true
+	melee_attack.get_node("CollisionShape2D").position = Vector2(-36, -1)  # Flip the collision shape
 	changed_direction.emit(_is_facing_left)
 
 func face_right() -> void:
 	_sprite.flip_h = false
 	_is_facing_left = false
+	melee_attack.get_node("CollisionShape2D").position = Vector2(36, 1)  # Reset the collision shape
 	changed_direction.emit(_is_facing_left)

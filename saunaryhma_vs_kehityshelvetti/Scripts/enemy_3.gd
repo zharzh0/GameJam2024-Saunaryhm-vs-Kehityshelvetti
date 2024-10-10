@@ -15,7 +15,7 @@ const GRAVITY = 300
 var player: CharacterBody2D = null
 var is_following = false
 var movement_velocity = Vector2.ZERO
-var _health: int = 50  # Initial health
+var _health: int = 3  # Initial health
 
 func _ready() -> void:
 	player = get_tree().get_root().get_node("Game/Player1")

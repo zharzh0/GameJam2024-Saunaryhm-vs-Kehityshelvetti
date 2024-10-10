@@ -6,10 +6,13 @@ extends Node2D
 @onready var _kivi_counter : Control = $UserInterface/KiviCounter
 @onready var _lives_counter : Control = $UserInterface/LivesCounter
 
-
 func _ready():
 	_init_boundaries()
 	_init_ui()
+	# Connect the health_changed signal using Callable
+	_player_character.connect("health_changed", Callable(self, "_on_health_changed"))
+	# Connect the died signal to reset collectibles
+	_player_character.connect("died", Callable(self, "_on_player_died"))
 
 func _init_boundaries():
 	# get the level boundaries from the level
@@ -21,17 +24,23 @@ func _init_boundaries():
 
 func _init_ui():
 	#initialize the UI
+	File.data.kiuaskivet = 0  # Ensure the collectible counter starts at 0
 	_kivi_counter.set_value(File.data.kiuaskivet)
-	_lives_counter.set_value(File.data.lives)
+	_lives_counter.set_value(_player_character._health)  # Set initial health
+
+func _on_health_changed(new_health: int):
+	_lives_counter.set_value(new_health)  # Update health display
+
+func _on_player_died():
+	File.data.kiuaskivet = 0  # Reset the collectible counter
+	_kivi_counter.set_value(File.data.kiuaskivet)  # Update the UI
 
 func collect_kivi(value : int):
 	File.data.kiuaskivet += value
-	if File.data.kiuaskivet>= 100:
+	if File.data.kiuaskivet >= 100:
 		File.data.kiuaskivet -= 100
-		File.data.lives += 1
-		_lives_counter.set_value(File.data.lives)
+		_player_character.take_damage(-10)  # Increase health by 10
 	_kivi_counter.set_value(File.data.kiuaskivet)
 
 func collect_lives():
-	File.data.lives += 1
-	_lives_counter.set_value(File.data.lives)
+	_player_character.take_damage(-10)  # Increase health by 10
