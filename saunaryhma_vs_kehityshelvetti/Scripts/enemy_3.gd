@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 				print("Following Player")
 
 		if is_following:
-			var direction_to_player = (player.position - position).normalized()
+			var direction_to_player =  (player.position - position).normalized()
 
 			if can_levitate:
 				movement_velocity = direction_to_player * SPEED

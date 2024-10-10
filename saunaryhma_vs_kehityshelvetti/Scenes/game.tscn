@@ -41,7 +41,7 @@ _look_ahead_duration = 2.0
 _floor_height_duration = 0.25
 
 [node name="Player1" parent="." instance=ExtResource("1_5fyvd")]
-position = Vector2(130, 468)
+position = Vector2(249, 502)
 _jump_height = 3.0
 
 [node name="Player" type="Node" parent="Player1"]
