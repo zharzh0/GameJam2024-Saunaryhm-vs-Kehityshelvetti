@@ -200,9 +200,11 @@ func _on_melee_attack_body_entered(body: Node) -> void:
 func face_left() -> void:
 	_sprite.flip_h = true
 	_is_facing_left = true
+	melee_attack.get_node("CollisionShape2D").position = Vector2(-36, -1)  # Flip the collision shape
 	changed_direction.emit(_is_facing_left)
 
 func face_right() -> void:
 	_sprite.flip_h = false
 	_is_facing_left = false
+	melee_attack.get_node("CollisionShape2D").position = Vector2(36, 1)  # Reset the collision shape
 	changed_direction.emit(_is_facing_left)
